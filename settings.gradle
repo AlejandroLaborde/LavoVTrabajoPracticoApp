@@ -1,0 +1,3 @@
+include ':app:visualizarchampion'
+include ':app'
+rootProject.name = "League Of Legends"
