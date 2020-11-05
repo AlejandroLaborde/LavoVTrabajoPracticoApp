@@ -31,7 +31,7 @@ public class ChampionViewHolder extends RecyclerView.ViewHolder implements View.
 
     @Override
     public void onClick(View v) {
-        Log.d("Click indice","Click" + this.nombre.getText());
+        Log.d("Click indice","Click " + this.nombre.getText());
         this.activity.mostrarDetalles(this.indice);
 
     }

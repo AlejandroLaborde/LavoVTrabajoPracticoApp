@@ -14,22 +14,23 @@ import java.util.List;
 
 public class ChampionControler {
 
-    public static void cargarChampions(List<Champion> lista ){
-        lista.add(new Champion("Garen","https://ddragon.leagueoflegends.com/cdn/10.22.1/img/champion/Garen.png"));
-        lista.add(new Champion("Atrox","https://ddragon.leagueoflegends.com/cdn/10.22.1/img/champion/Aatrox.png"));
-        lista.add(new Champion("Ashe","https://ddragon.leagueoflegends.com/cdn/10.22.1/img/champion/Ashe.png"));
-        lista.add(new Champion("Kennen", "https://ddragon.leagueoflegends.com/cdn/10.22.1/img/champion/Kennen.png"));
-    }
-
     public static void cargarChampionsFromJson(List<Champion> lista , String datos){
-        Log.e("Entro", "Entro");
         Gson gson = new Gson();
         Champion[] resp = gson.fromJson(datos,Champion[].class);
         if(resp!=null){
+            Double minValue=10000.0;
+            Double maxValue=0.0;
             for (int i = 0; i < resp.length; i++) {
-                Log.e("entro for", i + "");
+
                 try{
                     String asd = resp[i].icon;
+                    if(resp[i].stats.hp>maxValue){
+                        maxValue = resp[i].stats.hp;
+                    }
+                    if(resp[i].stats.hp<minValue){
+                        minValue = resp[i].stats.hp;
+                    }
+                    //Le agrego la S porque sino no me deja mostrarla, preguntar pq
                     resp[i].icon=asd.replace("http","https");
                     lista.add(resp[i]);
                 }catch(Exception e){
@@ -37,8 +38,10 @@ public class ChampionControler {
                 }
 
             }
+            Log.e("MinValue HP", minValue.toString());
+            Log.e("MaxValue HP", maxValue.toString());
         }else{
-            Log.e("es null", "es null");
+            Log.e("HTTP", "FALLO ALGO EN LA CONEXION");
         }
 
     }

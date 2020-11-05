@@ -39,10 +39,8 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback 
 
     @Override
     public boolean handleMessage(@NonNull Message msg) {
-        Log.d("Llego aca",msg.obj.toString());
 
         ChampionControler.cargarChampionsFromJson(champions,msg.obj.toString());
-        Log.d("D",msg.obj.toString());
         this.championAdapter.notifyDataSetChanged();
         return false;
     }

@@ -5,16 +5,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VisualizarChampionActivity"
-    android:background="@color/colorFondo">
+    android:background="@color/colorFondo"
+    android:orientation="vertical"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@android:dimen/app_icon_size"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imageChamp"
+        android:layout_width="170dp"
+        android:layout_height="222dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/nameChamp"
         android:text="Nombre Personaje"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textColor="#FFFFFF"
         android:gravity="center_horizontal"
         />
+    <TextView
+        android:id="@+id/titleChamp"
+        android:text="Nombre Personaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"
+        android:gravity="center_horizontal"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/hpChamp"
+            android:text="HP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="#FFFFFF"
+            android:gravity="center_horizontal"
+            />
+        <SeekBar
+            android:id="@+id/seekBarVida"
+            android:progress="50"
+            android:layout_width="wrap_content"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:max="700"
+            android:min="300"/>
+
+        <TextView
+            android:id="@+id/hpChampNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="HP"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+    
+
+
+</LinearLayout>
 
 </LinearLayout>

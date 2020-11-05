@@ -16,7 +16,7 @@ public class ConexionHttp {
             HttpURLConnection urlConnection = (HttpURLConnection) urlApi.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
-            Log.e("asd",urlConnection.getResponseCode()+"");
+            Log.e("Respuesta API",urlConnection.getResponseCode()+"");
             if( 200 == urlConnection.getResponseCode()){
                 InputStream is = urlConnection.getInputStream();
                 ByteArrayOutputStream  baos= new ByteArrayOutputStream();
@@ -28,7 +28,6 @@ public class ConexionHttp {
                 }
 
                 is.close();
-                Log.e("asd",baos.toString());
                 return baos.toString();
 
             }else{
