@@ -18,6 +18,9 @@ public class VisualizarChampionView {
     public TextView barMpNumber;
     public SeekBar msBar;
     public TextView barMsNumber;
+    public SeekBar adBar;
+    public TextView adBarNumber;
+    public TextView descripcionChamp;
 
     public VisualizarChampionView ( VisualizarChampionActivity activity){
         this.activity = activity;
@@ -30,6 +33,9 @@ public class VisualizarChampionView {
         this.barMpNumber = this.activity.findViewById(R.id.mpChampNumber);
         this.msBar = this.activity.findViewById(R.id.barMs);
         this.barMsNumber = this.activity.findViewById(R.id.msChampNumber);
+        this.adBar = this.activity.findViewById(R.id.barad);
+        this.adBarNumber = this.activity.findViewById(R.id.adChampNumber);
+        this.descripcionChamp = this.activity.findViewById(R.id.descripcionChamp);
 
 
     }
@@ -45,6 +51,9 @@ public class VisualizarChampionView {
         this.barMpNumber.setText(champ.stats.mp+"");
         this.msBar.setProgress(champ.stats.movespeed);
         this.barMsNumber.setText(champ.stats.movespeed + "");
+        this.adBar.setProgress((int)champ.stats.attackdamage);
+        this.adBarNumber.setText(champ.stats.attackdamage + "");
+        this.descripcionChamp.setText(champ.description);
 
 
     }
