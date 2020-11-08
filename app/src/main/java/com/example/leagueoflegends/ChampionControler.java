@@ -18,17 +18,17 @@ public class ChampionControler {
         Gson gson = new Gson();
         Champion[] resp = gson.fromJson(datos,Champion[].class);
         if(resp!=null){
-            Double minValue=10000.0;
-            Double maxValue=0.0;
+            Integer minValue=10000;
+            Integer maxValue=0;
             for (int i = 0; i < resp.length; i++) {
 
                 try{
                     String asd = resp[i].icon;
-                    if(resp[i].stats.hp>maxValue){
-                        maxValue = resp[i].stats.hp;
+                    if(resp[i].stats.mp>maxValue){
+                        maxValue = resp[i].stats.movespeed;
                     }
-                    if(resp[i].stats.hp<minValue){
-                        minValue = resp[i].stats.hp;
+                    if(resp[i].stats.mp<minValue){
+                        minValue = resp[i].stats.movespeed;
                     }
                     //Le agrego la S porque sino no me deja mostrarla, preguntar pq
                     resp[i].icon=asd.replace("http","https");
